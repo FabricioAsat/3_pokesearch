@@ -78,7 +78,7 @@ function FormSearch({
 		const matches = [];
 
 		datos.data.results.forEach((pokemon) => {
-			if (pokemon.name.match(pokemonToSearch))
+			if (pokemon.name.replaceAll("-", " ").match(pokemonToSearch.toLowerCase()))
 				matches.push({ name: pokemon.name, url: pokemon.url });
 		});
 		setPokemonMatches(matches);
